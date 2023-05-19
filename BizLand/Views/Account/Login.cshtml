@@ -1,0 +1,29 @@
+﻿@model LoginVM
+<section id="contact" class="contact">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="row aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="col-lg-6">
+                <form method="post">
+                    <div class="row">
+                        <div class="form-group">
+                            <input asp-for="Username" class="form-control" id="username" placeholder="Username" required="">
+                            <span asp-validation-for="Username"></span>
+                        </div>
+                        <div class="col form-group">
+                            <input asp-for="Password" class="form-control" id="password" placeholder="Password" required="">
+                            <span asp-validation-for="Password"></span>
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <div asp-validation-summary="ModelOnly" class="loading"></div>
+                    </div>
+                    <div class="text-center"><button type="submit">Login</button></div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</section>

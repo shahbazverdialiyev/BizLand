@@ -88,15 +88,23 @@
                         </ul>
                     </li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li><a class="nav-link scrollto" asp-controller="Account" asp-action="Login">Login</a></li>
-                    <li><a class="nav-link scrollto" asp-controller="Account" asp-action="Register">Sign Up</a></li>
+                    @if (Context.User.Identity.IsAuthenticated)
+                    {
+                        <li><a class="nav-link scrollto">@Context.User.Identity.Name</a></li>
+                        <li><form method="post" asp-controller="Account" asp-action="Logout"><button type="submit" class="btn btn-light">[-></button></form></li>
+                    }
+                    else
+                    {
+                        <li><a class="nav-link scrollto" asp-controller="Account" asp-action="Login">Login</a></li>
+                        <li><a class="nav-link scrollto" asp-controller="Account" asp-action="Register">Sign Up</a></li>
+                    }
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
 
         </div>
     </header><!-- End Header -->
-     @RenderBody()
+    @RenderBody()
     <!-- ======= Footer ======= -->
     <footer id="footer">
 
